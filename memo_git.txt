@@ -1,0 +1,27 @@
+GIT usage memo
+--------------
+
+Commits
+*******
+
+HEAD is always the current commit.
+
+- log of commits: 
+	simple				git log
+	with lines add/del		git log -p
+	add/del short resume		git log --stat
+
+- change text label of last commit:	git commit --amend
+
+- cancel last commit:			git reset HEAD^		(last commit)
+	penultimate commit		git reset HEAD^^	(last commit - 1)
+	same command			git reset HEAD~2	(last commit - 1)
+	cancel a commit			git reset r45f1254f4648fa66523ba6568bd56de...ef
+
+	-> this commands remove commit from git but no change working file
+
+- cancel last commit with file change:	git reset --hard HEAD^
+
+- cancel filechange before a commit:	git checkout filename
+
+- cancel a "git add":			git reset HEAD -- filename (remove filename from index)
