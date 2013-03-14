@@ -1,10 +1,29 @@
-GIT usage memo
---------------
+GIT usage memo (public domain)
+------------------------------
 
-Commits
+init repository
+***************
+
+- create a local repo			git init
+
+- clone repo from github		git clone https://github.com/user_name/repo_name.git
+
+
+local index
+***********
+
+- add file				git add file_name
+- move file				git mv file_name
+- remove file				git rm file_name
+- cancel a "git add":			git reset HEAD -- filename (remove filename from index)
+
+
+commits
 *******
 
 HEAD is always the current commit.
+
+- do a commit				git commit -m "commit label"
 
 - log of commits: 
 	simple				git log
@@ -18,10 +37,39 @@ HEAD is always the current commit.
 	same command			git reset HEAD~2	(last commit - 1)
 	cancel a commit			git reset r45f1254f4648fa66523ba6568bd56de...ef
 
-	-> this commands remove commit from git but no change working file
+	-> this commands remove commit from git, but no change working file
 
 - cancel last commit with file change:	git reset --hard HEAD^
 
 - cancel filechange before a commit:	git checkout filename
 
-- cancel a "git add":			git reset HEAD -- filename (remove filename from index)
+
+branchs
+*******
+
+- create a branch:			git branch local_branch_name
+
+- delete a merge branch (no data loss):	git branch -d local_branch_name
+
+- delete an unmerge branch (data loss):	git branch -D local_branch_name
+
+- select a branch 			git checkout branch_name
+
+- list branch (* ahead select branch)	git branch
+
+- create localy a new branch, this branch exist on github:
+	retrieve github branchs names	git fetch
+	create local branch		git branch --track local_branch_name origin/github_branch_name
+
+- push a localy created new branch on github:
+	dev is the new branch		git branch dev
+	select dev			git checkout dev
+					[.. do some commit on dev ..]
+	create dev on github		git push origin dev
+
+- merge branch dev with master, upload to github:
+	select master branch		git checkout master
+	merge dev -> master		git merge dev
+	remove local branch dev		git branch -d dev
+	remove github branch dev	git push origin :dev
+	update github master branch	git push
