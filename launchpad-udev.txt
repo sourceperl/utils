@@ -1,0 +1,16 @@
+for add TI launchpad on linux (Raspbian dist) :
+
+1/ add your user to dialout group :
+sudo adduser <username> dialout
+
+2/ add UDEV rules:
+
+sudo vim /etc/udev/rules.d/60-launchpad
+
+add the following text on "60-launchpad" :
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0451", ATTRS{idProduct}=="f432", MODE="0666"
+
+3/ restart udev
+sudo /etc/init.d/udev restart
+
+4/ unplug/plug the USB port on launchpad
