@@ -1,0 +1,10 @@
+# some useful command for AVR on linux
+
+# udev rules for access to Atmel AVRISP
+lefebvre@debian:~$ cat /etc/udev/rules.d/80-avrisp.rules
+#AVRISP mkII
+SUBSYSTEM=="usb", ACTION=="add", ATTR{idVendor}=="03eb", ATTR{idProduct}=="2104", MODE="0666", GROUP="dialout"
+
+# read fuses on an ATmega328p with the Atmel AVRISP mkII
+avrdude -v -p m328p -c stk500v2 -P usb -U lfuse:r:-:h -U hfuse:r:-:h -U efuse:r:-:h
+
