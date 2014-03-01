@@ -13,3 +13,6 @@ sudo apt-get install nodejs-legacy
 
 # FTP server
 sudo apt-get install proftpd
+
+# Script "daemonize" like
+sudo apt-get install supervisor
