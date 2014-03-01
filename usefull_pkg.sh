@@ -18,4 +18,4 @@ sudo apt-get install proftpd
 sudo apt-get install supervisor
 
 # Python modules
-sudo apt-get install python-pip python-setuptools python-serial python-scipy python-requests ipython
+sudo apt-get install python-pip python-setuptools python-serial python-scipy python-requests python-twisted ipython
