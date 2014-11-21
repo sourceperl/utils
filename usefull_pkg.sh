@@ -17,7 +17,7 @@ sudo apt-get install supervisor
 
 # Python modules
 sudo apt-get install python-pip python-serial python-scipy \
-python-requests python-twisted ipython \
+python-requests python-twisted python-matplotlib ipython \
 python3-pip python3-serial python3-scipy python3-requests ipython3
 
 # Python lib
