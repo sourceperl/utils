@@ -4,19 +4,19 @@
 sudo apt-get update
 
 # Misc
-sudo apt-get install bc hexedit vim nmap gnuplot-x11 lftp git minicom
+sudo apt-get -y install bc hexedit vim nmap gnuplot-x11 lftp git minicom
 
 # Arduino
 #sudo apt-get install gcc-avr avr-libc avrdude
 
 # Node.js
-sudo apt-get install nodejs-legacy
+sudo apt-get -y install nodejs-legacy
 
 # Script "daemonize" like
-sudo apt-get install supervisor
+sudo apt-get -y install supervisor
 
 # Python modules
-sudo apt-get install python-pip python-serial python-scipy \
+sudo apt-get -y install python-pip python-serial python-scipy \
 python-requests python-twisted python-matplotlib ipython \
 python3-pip python3-serial python3-scipy python3-requests ipython3
 
@@ -24,9 +24,12 @@ python3-pip python3-serial python3-scipy python3-requests ipython3
 sudo pip install pyModbusTCP --upgrade
 sudo pip-3.2 install pyModbusTCP --upgrade
 
+# Perl lib
+sudo perl -MCPAN -e'install MBclient'
+
 # FTP server
-sudo apt-get install proftpd
+sudo apt-get -y install proftpd
 # not start at system init
-sudo /etc/init.d/proftp stop
+sudo /etc/init.d/proftpd stop
 sudo insserv -r proftpd
 
