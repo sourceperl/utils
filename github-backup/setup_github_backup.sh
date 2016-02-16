@@ -8,7 +8,7 @@ mkdir -p /home/pi/github_backup
 sudo pip install github-backup
 
 # add script to cron
-sudo cp gitbub-bak /etc/cron.weekly/
+sudo cp github-bak /etc/cron.weekly/
 
 # warn
 echo "!!! think to update /etc/cron.weekly/github-bak with your credentials !!!"
