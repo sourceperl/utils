@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # home
 cd
 
@@ -14,4 +16,4 @@ sudo wget http://repo.mosquitto.org/debian/mosquitto-jessie.list
 sudo apt-get update
 
 # install broker and clients
-sudo apt-get install mosquitto mosquitto-clients
+sudo apt-get install -y mosquitto mosquitto-clients
