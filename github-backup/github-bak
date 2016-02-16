@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# backup github account
+
+github-backup <github_user_name> -t <github_oauth_token> --all -o /home/pi/github_backup/ >/dev/null 2>&1
