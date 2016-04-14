@@ -1,0 +1,15 @@
+Rpi3 remap /dev/ttyAMAO (main UART) to GPIO 14/15 instead of HCI interface.
+After this internal bluetooth chip become unavailable.
+
+1. use a fresh SD card (Raspbian 2016-03-18 or after).
+
+2. edit /boot/config.txt (with sudo vim /boot/config.txt)
+
+3. update device tree for use a new one :
+
+add, the following text at the end of file :
+
+# disable map of Bluetooth HCI on main SOC UART
+dtoverlay=pi3-miniuart-bt
+
+4. save it and reboot the rpi3
