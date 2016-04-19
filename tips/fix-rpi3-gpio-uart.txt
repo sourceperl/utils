@@ -12,4 +12,11 @@ add, the following text at the end of file :
 # disable map of Bluetooth HCI on main SOC UART
 dtoverlay=pi3-miniuart-bt
 
-4. save it and reboot the rpi3
+4. save the file
+
+5. do command :
+
+# disable hciattach to /dev/ttyAMA0
+sudo systemctl disable hciuart
+
+6. reboot the rpi3
