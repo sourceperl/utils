@@ -5,7 +5,6 @@ git config --global color.diff auto
 git config --global color.status auto
 git config --global color.branch auto
 
-# think to make...
-echo "don't forget to set :"
-echo "git config --global user.name \"your_pseudo\""
-echo "git config --global user.email moi@email.com"
+# default account
+git config --global user.name sourceperl
+git config --global user.email loic.celine@free.fr
