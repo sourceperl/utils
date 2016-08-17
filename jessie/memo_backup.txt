@@ -1,0 +1,2 @@
+# connect to pi at 192.168.0.22 and retrieve gzip full SD card image
+ssh pi@192.168.0.22 "sudo dd if=/dev/mmcblk0 | gzip -1 -" | dd of=image.gz
