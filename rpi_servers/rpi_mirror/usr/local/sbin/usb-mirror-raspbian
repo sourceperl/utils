@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# check HDD is mounted
+if mountpoint -q /mnt/USB_HDD
+then
+  echo "INFO: /mnt/USB_HDD is mounted"
+  # check USB key is mounted
+  if mountpoint -q /mnt/USB_KEY
+  then
+    # sync Raspbian files HDD > USB key
+    echo "INFO: /mnt/USB_HDD is mounted"
+    rsync --archive --delete --delete-delay --delay-updates -v /mnt/USB_HDD/raspbian/ /mnt/USB_KEY/raspbian
+  else 
+    echo "ERROR: USB key is not mounted"
+  fi
+else
+  echo "ERROR: /mnt/USB_HDD is not mounted"
+fi
+
