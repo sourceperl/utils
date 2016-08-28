@@ -43,8 +43,8 @@ mkdir -p /mnt/USB_HDD
 mkdir -p /mnt/USB_KEY
 
 L1="# fix USB HDD/key mountpoints for mirror"
-L2="UUID=$UUID_HDD  /mnt/USB_HDD  ext4  auto,user,exec,nofail  0  0"
-L3="UUID=$UUID_KEY  /mnt/USB_KEY  vfat  auto,user,exec,nofail,noatime  0  0"
+L2="UUID=$UUID_HDD  /mnt/USB_HDD  ext4  auto,exec,nofail  0  0"
+L3="UUID=$UUID_KEY  /mnt/USB_KEY  vfat  auto,uid=pi,gid=pi,exec,nofail,noatime  0  0"
 FILE=/etc/fstab
 grep -q "$L1" "$FILE" || echo "$L1" >> "$FILE"
 grep -q "$L2" "$FILE" || echo "$L2" >> "$FILE"
@@ -64,8 +64,8 @@ service cron reload
 
 # configure usb-mirror (HDD -> USB key)
 mkdir -p /mnt/USB_KEY/raspbian
-cp usr/local/sbin/usb-mirror-raspbian /usr/local/sbin/
-chmod +x /usr/local/sbin/usb-mirror-raspbian
+cp usr/local/bin/usb-mirror-raspbian /usr/local/bin/
+chmod +x /usr/local/bin/usb-mirror-raspbian
 
 # configure cron for usb-mirror
 cp etc/cron.d/usb-mirror-raspbian /etc/cron.d/
