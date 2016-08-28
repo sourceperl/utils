@@ -1,19 +1,7 @@
 #!/bin/bash
 
-# check HDD is mounted
-if mountpoint -q /mnt/USB_HDD
-then
-  echo "INFO: /mnt/USB_HDD is mounted"
-  # check USB key is mounted
-  if mountpoint -q /mnt/USB_KEY
-  then
-    # sync Raspbian files HDD > USB key
-    echo "INFO: /mnt/USB_HDD is mounted"
-    rsync --archive --delete --delete-delay --delay-updates -v /mnt/USB_HDD/raspbian/ /mnt/USB_KEY/raspbian
-  else 
-    echo "ERROR: USB key is not mounted"
-  fi
-else
-  echo "ERROR: /mnt/USB_HDD is not mounted"
-fi
-
+# exit if HDD or KEY not mounted
+mountpoint -q /mnt/USB_HDD && mountpoint -q /mnt/USB_KEY || { echo "USB hdd or key not mounted"; exit 1; }
+# for sync ext4 fs with vfat (see http://www.monperrus.net/martin/backup+from+ext3+to+vfat+with+rsync)
+RSYNC_OPT="-a --no-o --no-p --no-g --safe-links --modify-window 1 --delete-delay --delay-updates --stats"
+rsync $RSYNC_OPT /mnt/USB_HDD/raspbian/ /mnt/USB_KEY/raspbian
