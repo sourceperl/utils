@@ -2,4 +2,10 @@
 #
 # backup github account
 
+# backup all in /home/pi/github-backup/
 github-backup <github_user_name> -t <github_oauth_token> --all -o /home/pi/github_backup/ >/dev/null 2>&1
+
+# do a merge on every repository
+for i in /home/pi/github_backup/repositories/*/repository/
+  do ( echo $i; cd $i; git merge origin/master; )
+done
