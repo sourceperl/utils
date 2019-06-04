@@ -2,7 +2,8 @@
 
 # add packages to allow https repository
 sudo apt-get update
-sudo apt-get -y install apt-transport-https ca-certificates software-properties-common python-pip
+sudo apt-get -y install apt-transport-https ca-certificates software-properties-common
+sudo apt-get install build-essential libssl-dev libffi-dev python3-dev
 
 # add new source to APT
 curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo apt-key add -
@@ -15,7 +16,7 @@ sudo apt-get update
 sudo apt-get -y install docker-ce docker-ce-cli
 
 # add docker-compose
-sudo pip install docker-compose
+sudo pip3 install docker-compose==1.24.0
 
 # add user pi to docker group (you must close/open session to take effect)
 sudo usermod -aG docker pi
