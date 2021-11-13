@@ -5,7 +5,7 @@
 mkdir -p /home/pi/github_backup
 
 # install github_backup
-sudo pip install github-backup
+sudo pip3 install github-backup
 
 # add script to cron
 sudo cp github-bak /etc/cron.weekly/

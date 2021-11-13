@@ -3,9 +3,13 @@
 # backup github account
 
 # backup all in /home/pi/github-backup/
-github-backup <github_user_name> -t <github_oauth_token> --all -o /home/pi/github_backup/ >/dev/null 2>&1
+github-backup <github_user_name> -t <github_oauth_token> --all --gists -o /home/pi/github_backup/ >/dev/null 2>&1
 
-# do a merge on every repository
+# do a merge on every repositories and gists
 for i in /home/pi/github_backup/repositories/*/repository/
+  do ( echo $i; cd $i; git merge origin/master; )
+done
+
+for i in /home/pi/github_backup/gists/*/repository/
   do ( echo $i; cd $i; git merge origin/master; )
 done
