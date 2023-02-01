@@ -7,4 +7,4 @@ git config --global color.branch auto
 
 # default account
 git config --global user.name sourceperl
-git config --global user.email loic.celine@free.fr
+git config --global user.email 3809271+sourceperl@users.noreply.github.com
