@@ -4,17 +4,24 @@
     "editor.rulers": [
         120
     ],
+    "files.autoSave": "onFocusChange",
     "workbench.colorCustomizations": {
         "editorRuler.foreground": "#b62626a4"
     },
     "outline.collapseItems": "alwaysCollapse",
+    "explorer.fileNesting.expand": false,
+    "workbench.editorAssociations": {
+        "*.xlsx": "default"
+    },
     "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.defaultFormatter": "ms-python.autopep8",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": "always"
-        }
+            "source.organizeImports": "always",
+            "source.fixAll": "always"
+        },
     },
+    "python.languageServer": "Pylance",
     "python.analysis.typeCheckingMode": "basic",
     "autopep8.args": [
         "--max-line-length=120"
@@ -22,8 +29,11 @@
     "black-formatter.args": [
         "--line-length 120"
     ],
-    "isort.args": [
-        "--profile",
-        "black"
-    ]
+    // "isort.args": [
+    //     "--profile",
+    //     "black"
+    // ],
+    "github.gitAuthentication": false,
+    "git.confirmSync": false,
+    "git.terminalAuthentication": false
 }
