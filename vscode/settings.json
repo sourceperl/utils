@@ -1,10 +1,9 @@
 {
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     "editor.renderWhitespace": "boundary",
     "editor.rulers": [
         120
     ],
-    "files.autoSave": "onFocusChange",
     "workbench.colorCustomizations": {
         "editorRuler.foreground": "#b62626a4"
     },
@@ -19,7 +18,7 @@
         "editor.codeActionsOnSave": {
             "source.organizeImports": "always",
             "source.fixAll": "always"
-        },
+        }
     },
     "python.languageServer": "Pylance",
     "python.analysis.typeCheckingMode": "basic",
@@ -35,5 +34,16 @@
     ],
     "github.gitAuthentication": false,
     "git.confirmSync": false,
-    "git.terminalAuthentication": false
+    "git.terminalAuthentication": false,
+    "files.autoSave": "afterDelay",
+    "workbench.startupEditor": "none",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "python.createEnvironment.trigger": "off",
+    "extensions.ignoreRecommendations": true,
+    "files.associations": {
+        "*.local": "ini"
+    }
 }
