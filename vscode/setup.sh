@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+
 # add vscode
 sudo apt install -y code
 
@@ -14,4 +16,4 @@ code --install-extension ms-python.vscode-pylance
 #code --install-extension tamasfe.even-better-toml
 
 # apply user settings
-install -vD settings.json ~/.config/Code/User/settings.json
+install -vD ${SCRIPT_DIR}/settings.json ${HOME}/.config/Code/User/settings.json
